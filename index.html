@@ -354,7 +354,7 @@
         <div class="visit-form-wrap reveal">
           <form class="visit-form" id="reserveForm" novalidate>
             <h3>Reserve a table</h3>
-            <p class="form-note">Fill this in and we'll prepare an email with your details — just press send.</p>
+            <p class="form-note">Send us your details and we'll confirm your table by email.</p>
 
             <div class="field">
               <label for="name">Name <span aria-hidden="true">*</span></label>
@@ -384,8 +384,11 @@
 
             <button type="submit" class="btn btn-primary btn-block" id="reserveBtn">Request Reservation</button>
             <p class="form-success" id="formSuccess" role="status" hidden>
-              Your email app should now be open with your reservation details — just press <strong>Send</strong>.
-              Didn't open? Email us at <a href="mailto:rysarsuelo2@gmail.com">rysarsuelo2@gmail.com</a>.
+              Thanks! Your reservation request has been sent — we'll get back to you shortly.
+            </p>
+            <p class="form-error" id="formError" role="alert" hidden>
+              Hmm, that didn't go through. Please email us at
+              <a href="mailto:rysarsuelo2@gmail.com">rysarsuelo2@gmail.com</a> or message us on Facebook below.
             </p>
             <p class="form-alt">Prefer to chat? <a href="https://www.facebook.com/profile.php?id=61569159827404" target="_blank" rel="noopener">Message us on Facebook</a>.</p>
           </form>
