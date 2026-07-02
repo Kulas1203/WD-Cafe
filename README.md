@@ -3,9 +3,9 @@
 A cafe that makes your heart happy.
 
 A warm, cozy landing website for **WD Cafe** — Butuan City's neighborhood coffee
-shop, with branches at **Villa Kananga** and **Montilla Blvd**.
+shop at **Montilla Blvd**.
 
-> ☕ Brewing Schedule @ Montilla Blvd: Sat–Thu, 6:00 PM – 12:00 MN · Closed Friday
+> ☕ Brewing Schedule: Sat–Thu, 6:00 PM – 12:00 MN · Closed Friday
 
 ## ✨ Features
 
@@ -37,8 +37,12 @@ Generated with the [ui-ux-pro-max](https://github.com/nextlevelbuilder/ui-ux-pro
 WD-Cafe/
 ├── index.html        # Page markup
 ├── css/styles.css    # Design system + components
-└── js/main.js        # Nav, tabs, scroll reveal, form validation
+├── js/main.js        # Nav, tabs, scroll reveal, form validation
+└── images/menu/      # Per-drink illustrations (swap with real photos anytime)
 ```
+
+> 💡 To use real product photos: drop them into `images/menu/` and update the
+> matching `<img src>` in `index.html` (e.g. `spanish-latte.svg` → `spanish-latte.jpg`).
 
 ## 🚀 Run locally
 

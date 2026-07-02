@@ -264,14 +264,22 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .menu-tab:hover { color: var(--color-primary); border-color: var(--color-primary); }
 .menu-tab.is-active { background: var(--color-primary); color: #fff; border-color: var(--color-primary); box-shadow: 0 8px 18px rgba(146,64,14,.25); }
 
-.menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.3rem; }
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 1.3rem; }
 .menu-card {
+  display: flex; gap: 1.1rem; align-items: flex-start;
   background: var(--color-surface); border: 1px solid var(--color-border);
-  border-radius: var(--radius); padding: 1.5rem;
+  border-radius: var(--radius); padding: 1.25rem;
   transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s var(--ease);
 }
 .menu-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--color-gold); }
 .menu-card.is-hidden { display: none; }
+.menu-photo {
+  flex: none; width: 92px; border-radius: 12px; padding: .35rem;
+  background: linear-gradient(180deg, #FBF7F0, #F1E9DB);
+  border: 1px solid var(--color-border);
+}
+.menu-photo img { width: 100%; height: auto; display: block; }
+.menu-info { flex: 1; min-width: 0; }
 .menu-card-top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: .6rem; }
 .menu-card h3 { font-family: var(--font-display); font-size: 1.3rem; color: var(--color-primary); font-weight: 600; }
 .menu-card .price { font-weight: 700; color: var(--color-accent); font-size: 1.05rem; white-space: nowrap; }
