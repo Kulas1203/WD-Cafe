@@ -2,15 +2,17 @@
 
 A cafe that makes your heart happy.
 
-A warm, cozy landing website for **WD Cafe** — a neighborhood coffee shop serving
-artisan coffee, fresh bakes, and good vibes.
+A warm, cozy landing website for **WD Cafe** — Butuan City's neighborhood coffee
+shop, with branches at **Villa Kananga** and **Montilla Blvd**.
+
+> ☕ Brewing Schedule @ Montilla Blvd: Sat–Thu, 6:00 PM – 12:00 MN · Closed Friday
 
 ## ✨ Features
 
 - **Responsive, mobile-first layout** (375px → 1440px+)
 - **Sticky navigation** with an accessible mobile menu
-- **Hero** with brand story, stats, and a floating "fresh roast" badge
-- **Interactive menu** with filterable categories (Coffee · Cold & Tea · Bakes)
+- **Hero** with brand story, stats, and an "open 'til midnight" badge
+- **Real menu** with filterable categories (Coffee · Non-Coffee Drinks) and ₱ pricing
 - **Photo gallery** in a bento-style grid
 - **Customer reviews** with rating summary
 - **Reservation form** with inline validation and success feedback
