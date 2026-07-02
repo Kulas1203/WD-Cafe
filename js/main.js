@@ -106,6 +106,9 @@
     });
   });
 
+  // Reservation requests are sent by email — change the address here.
+  var RESERVATION_EMAIL = 'rysarsuelo2@gmail.com';
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var name = document.getElementById('name');
@@ -118,18 +121,23 @@
       return;
     }
 
-    var btn = document.getElementById('reserveBtn');
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
+    var date = document.getElementById('date').value || 'To be arranged';
+    var guests = document.getElementById('guests').value;
+    var subject = 'Table Reservation Request — ' + name.value.trim();
+    var body =
+      'Hi WD Cafe,\n\n' +
+      'I would like to reserve a table.\n\n' +
+      'Name: ' + name.value.trim() + '\n' +
+      'Email: ' + email.value.trim() + '\n' +
+      'Date: ' + date + '\n' +
+      'Guests: ' + guests + '\n\n' +
+      'Thank you!';
 
-    // Simulate async submit
-    setTimeout(function () {
-      form.reset();
-      success.hidden = false;
-      btn.disabled = false;
-      btn.textContent = 'Request Reservation';
-      success.focus && success.focus();
-    }, 900);
+    window.location.href = 'mailto:' + RESERVATION_EMAIL +
+      '?subject=' + encodeURIComponent(subject) +
+      '&body=' + encodeURIComponent(body);
+
+    success.hidden = false;
   });
 
   /* ---------- Footer year ---------- */
