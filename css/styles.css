@@ -123,15 +123,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; min-height: 64px; }
 
-.brand { display: inline-flex; align-items: center; gap: .55rem; font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; color: var(--color-primary); }
+.brand { display: inline-flex; align-items: center; gap: .6rem; font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; color: var(--color-primary); }
 .brand-mark {
-  display: grid; place-items: center; width: 40px; height: 40px;
-  background: var(--color-primary); color: var(--color-cream);
-  border-radius: 12px; box-shadow: var(--shadow-sm);
+  display: grid; place-items: center; width: 46px; height: 46px;
+  color: var(--color-primary); border-radius: 50%;
 }
+.brand-mark svg { display: block; }
 .brand-accent { color: var(--color-accent); }
 .brand-light { color: var(--color-cream); }
-.brand-light .brand-mark { background: var(--color-cream); color: var(--color-primary); }
+.brand-light .brand-mark { color: var(--color-cream); }
 .brand-light .brand-accent { color: var(--color-gold); }
 
 .nav-links { display: flex; align-items: center; gap: 2rem; }
@@ -354,6 +354,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .field input[aria-invalid="true"] { border-color: #DC2626; }
 .error { display: block; color: #DC2626; font-size: .82rem; margin-top: .35rem; min-height: 1em; }
 .form-success { margin-top: 1rem; padding: .9rem 1rem; background: #DCFCE7; color: #166534; border-radius: 12px; font-weight: 600; font-size: .95rem; }
+.form-alt { margin-top: 1rem; text-align: center; font-size: .92rem; color: var(--color-muted); }
+.form-alt a { color: var(--color-secondary); font-weight: 700; }
+.form-alt a:hover { text-decoration: underline; }
 
 /* ============================================================
    CTA BANNER
