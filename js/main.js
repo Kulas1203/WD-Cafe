@@ -106,14 +106,28 @@
     });
   });
 
-  // Reservation requests are sent by email — change the address here.
+  // Reservation requests are emailed directly via FormSubmit (formsubmit.co).
+  // Change the destination inbox here:
   var RESERVATION_EMAIL = 'rysarsuelo2@gmail.com';
+
+  var errorBox = document.getElementById('formError');
+
+  function buildMailto(name, email, date, guests) {
+    var subject = 'Table Reservation Request — ' + name;
+    var body =
+      'Hi WD Cafe,\n\nI would like to reserve a table.\n\n' +
+      'Name: ' + name + '\nEmail: ' + email + '\nDate: ' + date +
+      '\nGuests: ' + guests + '\n\nThank you!';
+    return 'mailto:' + RESERVATION_EMAIL +
+      '?subject=' + encodeURIComponent(subject) +
+      '&body=' + encodeURIComponent(body);
+  }
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var name = document.getElementById('name');
-    var email = document.getElementById('email');
-    var ok = validateField(name) & validateField(email);
+    var nameInput = document.getElementById('name');
+    var emailInput = document.getElementById('email');
+    var ok = validateField(nameInput) & validateField(emailInput);
 
     if (!ok) {
       var firstInvalid = form.querySelector('[aria-invalid="true"]');
@@ -121,23 +135,48 @@
       return;
     }
 
+    var name = nameInput.value.trim();
+    var email = emailInput.value.trim();
     var date = document.getElementById('date').value || 'To be arranged';
     var guests = document.getElementById('guests').value;
-    var subject = 'Table Reservation Request — ' + name.value.trim();
-    var body =
-      'Hi WD Cafe,\n\n' +
-      'I would like to reserve a table.\n\n' +
-      'Name: ' + name.value.trim() + '\n' +
-      'Email: ' + email.value.trim() + '\n' +
-      'Date: ' + date + '\n' +
-      'Guests: ' + guests + '\n\n' +
-      'Thank you!';
 
-    window.location.href = 'mailto:' + RESERVATION_EMAIL +
-      '?subject=' + encodeURIComponent(subject) +
-      '&body=' + encodeURIComponent(body);
+    // Very old browsers without fetch: open a pre-filled email instead
+    if (!window.fetch) {
+      window.location.href = buildMailto(name, email, date, guests);
+      success.hidden = false;
+      return;
+    }
 
-    success.hidden = false;
+    var btn = document.getElementById('reserveBtn');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    success.hidden = true;
+    errorBox.hidden = true;
+
+    fetch('https://formsubmit.co/ajax/' + RESERVATION_EMAIL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        _subject: 'Table Reservation Request — ' + name,
+        _template: 'table',
+        _captcha: 'false',
+        Name: name,
+        Email: email,
+        Date: date,
+        Guests: guests
+      })
+    }).then(function (res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json();
+    }).then(function () {
+      form.reset();
+      success.hidden = false;
+    }).catch(function () {
+      errorBox.hidden = false;
+    }).then(function () {
+      btn.disabled = false;
+      btn.textContent = 'Request Reservation';
+    });
   });
 
   /* ---------- Footer year ---------- */

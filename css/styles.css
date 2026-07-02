@@ -354,6 +354,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .field input[aria-invalid="true"] { border-color: #DC2626; }
 .error { display: block; color: #DC2626; font-size: .82rem; margin-top: .35rem; min-height: 1em; }
 .form-success { margin-top: 1rem; padding: .9rem 1rem; background: #DCFCE7; color: #166534; border-radius: 12px; font-weight: 600; font-size: .95rem; }
+.form-error { margin-top: 1rem; padding: .9rem 1rem; background: #FEE2E2; color: #991B1B; border-radius: 12px; font-weight: 600; font-size: .95rem; }
+.form-error a { color: inherit; text-decoration: underline; }
 .form-alt { margin-top: 1rem; text-align: center; font-size: .92rem; color: var(--color-muted); }
 .form-alt a { color: var(--color-secondary); font-weight: 700; }
 .form-alt a:hover { text-decoration: underline; }
