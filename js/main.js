@@ -123,6 +123,8 @@
       '&body=' + encodeURIComponent(body);
   }
 
+  function setHidden(el, hidden) { if (el) el.hidden = hidden; }
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var nameInput = document.getElementById('name');
@@ -139,44 +141,69 @@
     var email = emailInput.value.trim();
     var date = document.getElementById('date').value || 'To be arranged';
     var guests = document.getElementById('guests').value;
+    var btn = document.getElementById('reserveBtn');
+    var done = false;
 
-    // Very old browsers without fetch: open a pre-filled email instead
-    if (!window.fetch) {
-      window.location.href = buildMailto(name, email, date, guests);
-      success.hidden = false;
-      return;
+    function finish(sent) {
+      if (done) return;
+      done = true;
+      if (btn) { btn.disabled = false; btn.textContent = 'Request Reservation'; }
+      if (sent) {
+        form.reset();
+        setHidden(success, false);
+        setHidden(errorBox, true);
+      } else {
+        setHidden(success, true);
+        if (errorBox) {
+          setHidden(errorBox, false);
+        } else {
+          // No error box on this page version: open a pre-filled email instead
+          window.location.href = buildMailto(name, email, date, guests);
+          setHidden(success, false);
+        }
+      }
     }
 
-    var btn = document.getElementById('reserveBtn');
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
-    success.hidden = true;
-    errorBox.hidden = true;
+    try {
+      // Browsers without fetch: open a pre-filled email instead
+      if (!window.fetch) {
+        window.location.href = buildMailto(name, email, date, guests);
+        setHidden(success, false);
+        return;
+      }
 
-    fetch('https://formsubmit.co/ajax/' + RESERVATION_EMAIL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({
-        _subject: 'Table Reservation Request — ' + name,
-        _template: 'table',
-        _captcha: 'false',
-        Name: name,
-        Email: email,
-        Date: date,
-        Guests: guests
-      })
-    }).then(function (res) {
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      return res.json();
-    }).then(function () {
-      form.reset();
-      success.hidden = false;
-    }).catch(function () {
-      errorBox.hidden = false;
-    }).then(function () {
-      btn.disabled = false;
-      btn.textContent = 'Request Reservation';
-    });
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+      setHidden(success, true);
+      setHidden(errorBox, true);
+
+      // Never leave the button stuck: give up after 15s
+      var timer = setTimeout(function () { finish(false); }, 15000);
+
+      fetch('https://formsubmit.co/ajax/' + RESERVATION_EMAIL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: 'Table Reservation Request — ' + name,
+          _template: 'table',
+          _captcha: 'false',
+          Name: name,
+          Email: email,
+          Date: date,
+          Guests: guests
+        })
+      }).then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      }).then(function () {
+        clearTimeout(timer);
+        finish(true);
+      }).catch(function () {
+        clearTimeout(timer);
+        finish(false);
+      });
+    } catch (err) {
+      finish(false);
+    }
   });
 
   /* ---------- Footer year ---------- */
