@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.css?v=4" />
+  <link rel="stylesheet" href="css/styles.css?v=5" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23FEF3C7'/%3E%3Ccircle cx='50' cy='50' r='46' fill='none' stroke='%2392400E' stroke-width='4'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-family='Georgia,serif' font-size='42' font-weight='bold' fill='%2392400E'%3EWD%3C/text%3E%3C/svg%3E" />
 </head>
 <body>
@@ -205,12 +205,13 @@
         <div class="menu-tabs" role="tablist" aria-label="Menu categories">
           <button class="menu-tab is-active" role="tab" aria-selected="true" data-cat="coffee">Coffee</button>
           <button class="menu-tab" role="tab" aria-selected="false" data-cat="noncoffee">Non-Coffee Drinks</button>
+          <button class="menu-tab" role="tab" aria-selected="false" data-cat="snacks">Snacks</button>
         </div>
 
         <div class="menu-grid" id="menuGrid">
           <!-- Coffee -->
           <article class="menu-card reveal" data-cat="coffee">
-            <div class="menu-photo"><img src="images/menu/americano.svg" alt="Iced Americano in a clear cup" loading="lazy" width="88" height="110" /></div>
+            <div class="menu-photo"><img src="images/menu/photos/americano.jpg" alt="Iced Americano" loading="lazy" width="92" height="92" /></div>
             <div class="menu-info">
               <div class="menu-card-top"><h3>Americano</h3><span class="price">₱69.00</span></div>
               <p>Bold espresso with water — clean, dark, and refreshing over ice.</p>
@@ -218,7 +219,7 @@
             </div>
           </article>
           <article class="menu-card reveal" data-cat="coffee">
-            <div class="menu-photo"><img src="images/menu/spanish-latte.svg" alt="Iced Spanish Latte in a clear cup" loading="lazy" width="88" height="110" /></div>
+            <div class="menu-photo"><img src="images/menu/photos/spanish-latte.jpg" alt="Iced Spanish Latte" loading="lazy" width="92" height="92" /></div>
             <div class="menu-info">
               <div class="menu-card-top"><h3>Spanish Latte</h3><span class="price">₱89.00</span></div>
               <p>Espresso and silky milk sweetened with condensed milk.</p>
@@ -226,7 +227,7 @@
             </div>
           </article>
           <article class="menu-card reveal" data-cat="coffee">
-            <div class="menu-photo"><img src="images/menu/caramel-latte.svg" alt="Iced Caramel Latte in a clear cup" loading="lazy" width="88" height="110" /></div>
+            <div class="menu-photo"><img src="images/menu/photos/caramel-latte.jpg" alt="Iced Caramel Latte" loading="lazy" width="92" height="92" /></div>
             <div class="menu-info">
               <div class="menu-card-top"><h3>Caramel Latte</h3><span class="price">₱89.00</span></div>
               <p>Smooth espresso and milk with a swirl of golden caramel.</p>
@@ -234,7 +235,7 @@
             </div>
           </article>
           <article class="menu-card reveal" data-cat="coffee">
-            <div class="menu-photo"><img src="images/menu/salted-caramel.svg" alt="Iced Salted Caramel latte in a clear cup" loading="lazy" width="88" height="110" /></div>
+            <div class="menu-photo"><img src="images/menu/photos/salted-caramel.jpg" alt="Iced Salted Caramel latte" loading="lazy" width="92" height="92" /></div>
             <div class="menu-info">
               <div class="menu-card-top"><h3>Salted Caramel</h3><span class="price">₱89.00</span></div>
               <p>Our caramel latte with a savory twist of salt in every sip.</p>
@@ -242,17 +243,49 @@
             </div>
           </article>
           <article class="menu-card reveal" data-cat="coffee">
-            <div class="menu-photo"><img src="images/menu/french-vanilla.svg" alt="Iced French Vanilla Latte in a clear cup" loading="lazy" width="88" height="110" /></div>
+            <div class="menu-photo"><img src="images/menu/photos/french-vanilla.jpg" alt="Iced French Vanilla Latte" loading="lazy" width="92" height="92" /></div>
             <div class="menu-info">
               <div class="menu-card-top"><h3>French Vanilla Latte</h3><span class="price">₱89.00</span></div>
               <p>Creamy, vanilla-kissed espresso latte — smooth and comforting.</p>
               <span class="tag">Smooth</span>
             </div>
           </article>
+          <article class="menu-card reveal" data-cat="coffee">
+            <div class="menu-photo"><img src="images/menu/photos/mocha-latte.jpg" alt="Iced Mocha Latte" loading="lazy" width="92" height="92" /></div>
+            <div class="menu-info">
+              <div class="menu-card-top"><h3>Mocha Latte</h3><span class="price">₱89.00</span></div>
+              <p>Chocolate and espresso in smooth, cozy harmony.</p>
+              <span class="tag">Classic</span>
+            </div>
+          </article>
+          <article class="menu-card reveal" data-cat="coffee">
+            <div class="menu-photo"><img src="images/menu/photos/dirty-matcha.jpg" alt="Iced Dirty Matcha" loading="lazy" width="92" height="92" /></div>
+            <div class="menu-info">
+              <div class="menu-card-top"><h3>Dirty Matcha</h3><span class="price">₱89.00</span></div>
+              <p>Creamy matcha with a bold shot of espresso on top.</p>
+              <span class="tag">Bold</span>
+            </div>
+          </article>
+          <article class="menu-card reveal" data-cat="coffee">
+            <div class="menu-photo"><img src="images/menu/photos/white-choco-mocha.jpg" alt="Iced White Choco Mocha" loading="lazy" width="92" height="92" /></div>
+            <div class="menu-info">
+              <div class="menu-card-top"><h3>White Choco Mocha</h3><span class="price">₱89.00</span></div>
+              <p>Creamy white chocolate meets smooth espresso.</p>
+              <span class="tag">Creamy</span>
+            </div>
+          </article>
+          <article class="menu-card reveal" data-cat="coffee">
+            <div class="menu-photo"><img src="images/menu/photos/coffee-latte.jpg" alt="Iced Coffee Latte" loading="lazy" width="92" height="92" /></div>
+            <div class="menu-info">
+              <div class="menu-card-top"><h3>Coffee Latte</h3><span class="price">₱89.00</span></div>
+              <p>Our smooth, easy-drinking house latte.</p>
+              <span class="tag">House</span>
+            </div>
+          </article>
 
           <!-- Non-Coffee Drinks -->
           <article class="menu-card reveal is-hidden" data-cat="noncoffee">
-            <div class="menu-photo"><img src="images/menu/matcha-latte.svg" alt="Iced Matcha Latte in a clear cup" loading="lazy" width="88" height="110" /></div>
+            <div class="menu-photo"><img src="images/menu/photos/matcha-latte.jpg" alt="Iced Matcha Latte" loading="lazy" width="92" height="92" /></div>
             <div class="menu-info">
               <div class="menu-card-top"><h3>Matcha Latte</h3><span class="price">₱90.00</span></div>
               <p>Earthy green tea whisked into creamy milk over ice.</p>
@@ -260,7 +293,7 @@
             </div>
           </article>
           <article class="menu-card reveal is-hidden" data-cat="noncoffee">
-            <div class="menu-photo"><img src="images/menu/dark-chocolate.svg" alt="Iced Dark Chocolate drink in a clear cup" loading="lazy" width="88" height="110" /></div>
+            <div class="menu-photo"><img src="images/menu/photos/dark-chocolate.jpg" alt="Iced Dark Chocolate drink" loading="lazy" width="92" height="92" /></div>
             <div class="menu-info">
               <div class="menu-card-top"><h3>Dark Chocolate</h3><span class="price">₱95.00</span></div>
               <p>Rich, indulgent dark chocolate blended with fresh milk.</p>
@@ -268,7 +301,7 @@
             </div>
           </article>
           <article class="menu-card reveal is-hidden" data-cat="noncoffee">
-            <div class="menu-photo"><img src="images/menu/strawberry-latte.svg" alt="Iced Strawberry Latte in a clear cup" loading="lazy" width="88" height="110" /></div>
+            <div class="menu-photo"><img src="images/menu/photos/strawberry-latte.jpg" alt="Iced Strawberry Latte" loading="lazy" width="92" height="92" /></div>
             <div class="menu-info">
               <div class="menu-card-top"><h3>Strawberry Latte</h3><span class="price">₱95.00</span></div>
               <p>Sweet strawberry swirled through creamy milk.</p>
@@ -276,7 +309,7 @@
             </div>
           </article>
           <article class="menu-card reveal is-hidden" data-cat="noncoffee">
-            <div class="menu-photo"><img src="images/menu/blueberry-latte.svg" alt="Iced Blueberry Latte in a clear cup" loading="lazy" width="88" height="110" /></div>
+            <div class="menu-photo"><img src="images/menu/photos/blueberry-latte.jpg" alt="Iced Blueberry Latte" loading="lazy" width="92" height="92" /></div>
             <div class="menu-info">
               <div class="menu-card-top"><h3>Blueberry Latte</h3><span class="price">₱95.00</span></div>
               <p>Berry-sweet and creamy — a refreshing take on the latte.</p>
@@ -284,11 +317,61 @@
             </div>
           </article>
           <article class="menu-card reveal is-hidden" data-cat="noncoffee">
-            <div class="menu-photo"><img src="images/menu/ube-latte.svg" alt="Iced Ube Latte in a clear cup" loading="lazy" width="88" height="110" /></div>
+            <div class="menu-photo"><img src="images/menu/photos/ube-latte.jpg" alt="Iced Ube Latte" loading="lazy" width="92" height="92" /></div>
             <div class="menu-info">
               <div class="menu-card-top"><h3>Ube Latte</h3><span class="price">₱95.00</span></div>
               <p>Creamy purple yam latte — a Filipino classic, made with love.</p>
               <span class="tag">Must-try</span>
+            </div>
+          </article>
+          <article class="menu-card reveal is-hidden" data-cat="noncoffee">
+            <div class="menu-photo"><img src="images/menu/photos/cookies-n-cream.jpg" alt="Iced Cookies N' Cream drink" loading="lazy" width="92" height="92" /></div>
+            <div class="menu-info">
+              <div class="menu-card-top"><h3>Cookies N' Cream</h3><span class="price">₱98.00</span></div>
+              <p>Crushed cookies blended into cool, creamy milk.</p>
+              <span class="tag">Sweet treat</span>
+            </div>
+          </article>
+          <article class="menu-card reveal is-hidden" data-cat="noncoffee">
+            <div class="menu-photo"><img src="images/menu/photos/choco-berry-bliss.jpg" alt="Iced Choco Berry Bliss drink" loading="lazy" width="92" height="92" /></div>
+            <div class="menu-info">
+              <div class="menu-card-top"><h3>Choco Berry Bliss</h3><span class="price">₱99.00</span></div>
+              <p>Chocolate and berries in one blissful cup.</p>
+              <span class="tag">Indulgent</span>
+            </div>
+          </article>
+          <article class="menu-card reveal is-hidden" data-cat="noncoffee">
+            <div class="menu-photo"><img src="images/menu/photos/blueberry-matcha.jpg" alt="Iced Blueberry Matcha" loading="lazy" width="92" height="92" /></div>
+            <div class="menu-info">
+              <div class="menu-card-top"><h3>Blueberry Matcha</h3><span class="price">₱110.00</span></div>
+              <p>Earthy matcha layered over sweet blueberry.</p>
+              <span class="tag">Premium</span>
+            </div>
+          </article>
+          <article class="menu-card reveal is-hidden" data-cat="noncoffee">
+            <div class="menu-photo"><img src="images/menu/photos/strawberry-matcha.jpg" alt="Iced Strawberry Matcha" loading="lazy" width="92" height="92" /></div>
+            <div class="menu-info">
+              <div class="menu-card-top"><h3>Strawberry Matcha</h3><span class="price">₱110.00</span></div>
+              <p>Strawberry sweetness beneath creamy matcha.</p>
+              <span class="tag">Premium</span>
+            </div>
+          </article>
+
+          <!-- Snacks -->
+          <article class="menu-card reveal is-hidden" data-cat="snacks">
+            <div class="menu-photo"><img src="images/menu/wapi-fries.svg" alt="Wapi Fries in a branded carton" loading="lazy" width="92" height="92" /></div>
+            <div class="menu-info">
+              <div class="menu-card-top"><h3>Wapi Fries 120g</h3><span class="price">₱69.00</span></div>
+              <p>Golden, crispy, and made for sharing.</p>
+              <span class="tag">Snack</span>
+            </div>
+          </article>
+          <article class="menu-card reveal is-hidden" data-cat="snacks">
+            <div class="menu-photo"><img src="images/menu/ny-overload.svg" alt="N.Y Overload loaded fries" loading="lazy" width="92" height="92" /></div>
+            <div class="menu-info">
+              <div class="menu-card-top"><h3>N.Y Overload</h3><span class="price">₱70.00</span></div>
+              <p>Loaded, New York–style goodness.</p>
+              <span class="tag">Loaded</span>
             </div>
           </article>
         </div>

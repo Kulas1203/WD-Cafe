@@ -344,14 +344,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .menu-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--color-gold); }
 .menu-card.is-hidden { display: none; }
 .menu-photo {
-  flex: none; width: 92px; border-radius: 12px; padding: .35rem;
-  background: linear-gradient(180deg, #FBF7F0, #F1E9DB);
+  flex: none; width: 92px; aspect-ratio: 1; border-radius: 12px; padding: .2rem;
+  background: #fff; overflow: hidden;
   border: 1px solid var(--color-border);
   cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent;
   transition: box-shadow .2s var(--ease);
 }
 .menu-photo:hover { box-shadow: 0 4px 12px rgba(146, 64, 14, .18); }
-.menu-photo img { width: 100%; height: auto; display: block; transform-origin: 50% 88%; }
+.menu-photo img { width: 100%; height: 100%; object-fit: contain; border-radius: 9px; display: block; transform-origin: 50% 88%; }
 .menu-photo.jiggle img { animation: cup-jiggle .65s cubic-bezier(.36, .07, .19, .97); }
 @keyframes cup-jiggle {
   0%   { transform: scale(1) rotate(0); }
