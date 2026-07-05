@@ -57,6 +57,22 @@
     });
   });
 
+  /* ---------- Cup jiggle on click ---------- */
+  var menuGrid = document.getElementById('menuGrid');
+  if (menuGrid) {
+    menuGrid.addEventListener('click', function (e) {
+      var photo = e.target.closest ? e.target.closest('.menu-photo') : null;
+      if (!photo) return;
+      photo.classList.remove('jiggle');
+      void photo.offsetWidth; // restart the animation on rapid clicks
+      photo.classList.add('jiggle');
+    });
+    menuGrid.addEventListener('animationend', function (e) {
+      var photo = e.target.closest ? e.target.closest('.menu-photo') : null;
+      if (photo) photo.classList.remove('jiggle');
+    });
+  }
+
   /* ---------- Scroll reveal (IntersectionObserver) ---------- */
   var reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
