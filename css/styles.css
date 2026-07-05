@@ -172,6 +172,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   letter-spacing: -0.02em; color: var(--color-primary); margin-bottom: 1.2rem;
 }
 .hero-title .script { font-style: italic; color: var(--color-accent); font-weight: 500; }
+/* Cinematic masked line reveal */
+.hero-title .line { display: block; overflow: hidden; padding-bottom: .08em; }
+.hero-title .line-inner { display: inline-block; transform: translateY(115%); animation: line-up .95s var(--ease) forwards; }
+.hero-title .line:nth-child(2) .line-inner { animation-delay: .18s; }
+@keyframes line-up { to { transform: translateY(0); } }
 .hero-sub { font-size: clamp(1.02rem, 2vw, 1.18rem); color: var(--color-muted); max-width: 52ch; margin-bottom: 2rem; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.6rem; }
 
@@ -190,6 +195,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   box-shadow: var(--shadow-lg);
   border: 6px solid #fff;
   transform: rotate(1.4deg);
+  animation: hero-zoom 14s ease-in-out infinite alternate;
+}
+@keyframes hero-zoom {
+  from { transform: rotate(1.4deg) scale(1); }
+  to   { transform: rotate(1.4deg) scale(1.045); }
 }
 .hero-badge {
   position: absolute; left: -10px; bottom: 26px;
@@ -219,6 +229,65 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .marquee-track { display: flex; gap: 2rem; white-space: nowrap; width: max-content; animation: marquee 28s linear infinite; }
 .marquee-track span { font-family: var(--font-display); font-style: italic; font-size: 1.15rem; opacity: .92; }
 @keyframes marquee { to { transform: translateX(-50%); } }
+
+/* ============================================================
+   SIGNATURE SPOTLIGHT (scroll-driven cinematic showcase)
+   ============================================================ */
+.spotlight { position: relative; height: 320vh; background: #241105; }
+.spotlight-sticky {
+  position: sticky; top: 0; height: 100vh; height: 100dvh;
+  overflow: hidden; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 1.1rem;
+  background:
+    radial-gradient(900px 500px at 50% 115%, rgba(146, 64, 14, .35), transparent 65%),
+    radial-gradient(700px 400px at 50% -10%, rgba(224, 165, 60, .12), transparent 60%),
+    #241105;
+}
+.spotlight-eyebrow { color: var(--color-gold); margin-bottom: 0; position: relative; z-index: 2; }
+.spotlight-glow {
+  position: absolute; left: 50%; top: 50%;
+  width: 64vmin; height: 64vmin; margin: -32vmin 0 0 -32vmin;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(224, 165, 60, .32), rgba(224, 165, 60, .08) 45%, transparent 70%);
+  filter: blur(8px);
+  animation: glow-pulse 6s ease-in-out infinite;
+}
+@keyframes glow-pulse {
+  0%, 100% { transform: scale(1); opacity: .85; }
+  50%      { transform: scale(1.12); opacity: 1; }
+}
+.spotlight-stage { position: relative; z-index: 2; width: 100%; max-width: 560px; height: 58vh; min-height: 340px; }
+.spotlight-item {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem;
+  text-align: center; padding: 0 1.25rem;
+  opacity: 0; transform: translateY(46px) scale(.88);
+  transition: opacity .8s var(--ease), transform .8s var(--ease);
+  pointer-events: none;
+}
+.spotlight-item.is-active { opacity: 1; transform: none; }
+.spotlight-item img {
+  width: min(36vh, 230px); height: auto;
+  filter: drop-shadow(0 34px 44px rgba(0, 0, 0, .5));
+  animation: float 6s ease-in-out infinite;
+}
+.spotlight-item h3 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(1.9rem, 4.5vw, 2.9rem); color: #FEF3C7; letter-spacing: .01em;
+}
+.spotlight-item p { color: rgba(254, 243, 199, .72); font-size: 1.02rem; }
+.spotlight-dots { position: relative; z-index: 2; display: flex; gap: .55rem; }
+.spotlight-dots span {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(254, 243, 199, .22);
+  transition: background .3s var(--ease), transform .3s var(--ease);
+}
+.spotlight-dots span.on { background: var(--color-gold); transform: scale(1.3); }
+.spotlight-hint {
+  position: relative; z-index: 2;
+  color: rgba(254, 243, 199, .45); font-size: .74rem;
+  letter-spacing: .22em; text-transform: uppercase; font-weight: 700;
+}
 
 /* ============================================================
    SECTION BASE

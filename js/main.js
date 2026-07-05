@@ -73,6 +73,36 @@
     });
   }
 
+  /* ---------- Signature spotlight (scroll-driven showcase) ---------- */
+  var spotlight = document.getElementById('signature');
+  if (spotlight) {
+    var spotItems = spotlight.querySelectorAll('.spotlight-item');
+    var spotDots = spotlight.querySelectorAll('.spotlight-dots span');
+    var spotCurrent = 0;
+    var spotTicking = false;
+
+    function updateSpotlight() {
+      spotTicking = false;
+      var rect = spotlight.getBoundingClientRect();
+      var total = rect.height - window.innerHeight;
+      if (total <= 0) return;
+      var progress = Math.min(Math.max(-rect.top / total, 0), 0.999);
+      var idx = Math.floor(progress * spotItems.length);
+      if (idx !== spotCurrent) {
+        spotCurrent = idx;
+        spotItems.forEach(function (el, i) { el.classList.toggle('is-active', i === idx); });
+        spotDots.forEach(function (el, i) { el.classList.toggle('on', i === idx); });
+      }
+    }
+    window.addEventListener('scroll', function () {
+      if (!spotTicking) {
+        spotTicking = true;
+        window.requestAnimationFrame(updateSpotlight);
+      }
+    }, { passive: true });
+    updateSpotlight();
+  }
+
   /* ---------- Scroll reveal (IntersectionObserver) ---------- */
   var reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
