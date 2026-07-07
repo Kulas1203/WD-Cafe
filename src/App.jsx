@@ -4,6 +4,7 @@ import Marquee from './components/Marquee.jsx'
 import Spotlight from './components/Spotlight.jsx'
 import About from './components/About.jsx'
 import Menu from './components/Menu.jsx'
+import ExploreDishes from './components/ExploreDishes.jsx'
 import Gallery from './components/Gallery.jsx'
 import Reviews from './components/Reviews.jsx'
 import Visit from './components/Visit.jsx'
@@ -21,6 +22,7 @@ export default function App() {
         <Spotlight />
         <About />
         <Menu />
+        <ExploreDishes />
         <Gallery />
         <Reviews />
         <Visit />
