@@ -511,6 +511,35 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 /* ============================================================
+   EXPLORE DISHES (TheMealDB REST demo)
+   ============================================================ */
+.explore { background: var(--color-bg-warm); }
+.explore-state {
+  text-align: center; color: var(--color-muted); font-size: 1.05rem;
+  padding: 2.5rem 1rem;
+}
+.explore-error { color: #991B1B; }
+.linklike {
+  background: none; border: none; padding: 0; font: inherit; cursor: pointer;
+  color: var(--color-accent); font-weight: 700; text-decoration: underline;
+}
+.explore-grid {
+  display: grid; gap: 1.3rem; margin-top: 2.2rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+.explore-card {
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  border-radius: var(--radius); overflow: hidden;
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s var(--ease);
+}
+.explore-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--color-gold); }
+.explore-card img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
+.explore-card h3 {
+  font-family: var(--font-display); font-size: 1.1rem; font-weight: 600;
+  color: var(--color-primary); padding: .9rem 1rem 1.1rem; line-height: 1.25;
+}
+
+/* ============================================================
    REDUCED MOTION
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
